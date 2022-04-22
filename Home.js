@@ -9,7 +9,7 @@ const Home = props => {
         style={styles.globoLogo}
         source={require('./images/_Export_globoticket-bug-black.png')}
       />
-      <Text style={styles.title}>Welcome TO GloboTicket</Text>
+      <Text style={styles.title}>Welcome To GloboTicket</Text>
       <Text style={styles.subtitle}>{props.username}</Text>
       <Image style={styles.heroImage} source={require('./images/boxing.jpg')} />
       <View style={styles.textContainer}>
