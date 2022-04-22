@@ -32,7 +32,7 @@ const News = () => {
   const newsItem = ({item}) => {
     return (
       <View style={styles.storyList}>
-        <Image style={styles.thumb} source={{uri: item.uri}} />
+        <Image style={styles.thumb} source={{uri: item.url}} />
         <Text style={styles.storyText}>{item.title}</Text>
         <Text style={styles.storyText}>{item.url}</Text>
       </View>
