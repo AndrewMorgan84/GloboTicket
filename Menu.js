@@ -11,6 +11,11 @@ const Menu = () => {
         style={styles.button}>
         <Text style={styles.buttonText}>Events</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Contact')}
+        style={styles.button}>
+        <Text style={styles.buttontext}>Contact Us</Text>
+      </TouchableOpacity>
     </View>
   );
 };
