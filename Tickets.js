@@ -1,8 +1,15 @@
 import React from 'react';
-import {StyleSheet, Text, View, FlatList, Image} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import globoTickets from './TicketsDB';
 
-const Tickets = () => {
+const Tickets = ({navigation}) => {
   const ticketItem = ({item}) => {
     return (
       <View style={styles.tickets}>
@@ -10,18 +17,24 @@ const Tickets = () => {
           <Image style={styles.img} source={item.image} />
         </View>
         <View>
-          <Text style={styles.tickettitle}>{item.event}</Text>
-          <Text style={styles.ticketshortdescription}>
+          <Text style={styles.ticketTitle}>{item.event}</Text>
+          <Text style={styles.ticketShortdescription}>
             {item.shortDescription}
           </Text>
           <Text
-            style={styles.ticketdescription}
+            style={styles.ticketDescription}
             numberOfLines={2}
             ellipsizeMode="tail">
             {item.description}
           </Text>
-          <Text style={styles.ticketshortdescription}>Price: {item.price}</Text>
-          <Text style={styles.ticketbutton}>GET TICKETS</Text>
+          <Text style={styles.ticketShortdescription}>Price: {item.price}</Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Purchase', {tickId: item.eventId});
+            }}
+            style={styles.button}>
+            <Text style={styles.ticketButton}>GET TICKETS</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -49,23 +62,23 @@ const styles = StyleSheet.create({
     height: 180,
     width: '100%',
   },
-  tickettitle: {
+  ticketTitle: {
     fontFamily: 'Ubuntu-Regular',
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  ticketshortdescription: {
+  ticketShortdescription: {
     fontFamily: 'Ubuntu-Light',
     fontWeight: '600',
     textAlign: 'center',
     paddingTop: 5,
   },
-  ticketdescription: {
+  ticketDescription: {
     fontFamily: 'Ubuntu-Light',
     fontWeight: '600',
     padding: 15,
   },
-  ticketbutton: {
+  ticketButton: {
     fontFamily: 'Ubuntu-Regular',
     fontWeight: 'bold',
     textAlign: 'center',
